@@ -39,7 +39,7 @@ class RGBColor
     result
   end
 
-  def to_hex
+  def color_to_hex
     red = sprintf('%x', @red)
     red = red.upcase
     if red.length <2
@@ -85,7 +85,7 @@ class Led < RGBColor
     @blue = 0
   end
   def cube_command
-    '{'+@x.to_s+@y.to_s+@z.to_s+to_hex+'}'
+    '{'+@x.to_s+@y.to_s+@z.to_s+color_to_hex+'}'
   end
 end
 
@@ -97,12 +97,12 @@ class LedCube
     @idx = 0
     @leds = Array.new(64)
     while @x < 4 do
-      @z = 0;
+      @z = 0
       while @z < 4 do
         @y = 0
         while @y < 4 do
           @led = Led.new(@x,@y,@z)
-          @leds[@idx] = @led;
+          @leds[@idx] = @led
           @idx = @idx +1
           @y = @y +1
         end
@@ -114,7 +114,7 @@ class LedCube
 
   def cube_command
     @idx = 0
-    @command = '';
+    @command = ''
     while @idx <64 do
       @led = @leds[@idx]
       @command = @command+@led.cube_command
