@@ -79,3 +79,7 @@ class Led < RGBColor
     '{'+@x.to_s+@y.to_s+@z.to_s+to_hex+'}'
   end
 end
+
+class LedCube
+
+end
