@@ -1,0 +1,29 @@
+
+require './led'
+
+led_cube = Array.new(64)
+
+led = Led.new(2,1,2)
+led_cube[0] = led
+led = Led.new(0,1,1)
+led_cube[1] = led
+
+
+led_cube[0].green = 10
+puts led_cube[0].cube_command
+if led_cube[0].is_on
+  puts 'is On'
+else
+  puts 'is Off'
+end
+led_cube[1].turn_off
+puts led_cube[1].cube_command
+if led_cube[1].is_on
+  puts 'is On'
+else
+  puts 'is Off'
+end
+
+
+
+
