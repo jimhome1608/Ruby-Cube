@@ -67,6 +67,15 @@ class Led < RGBColor
     @z = z
     init_rgb(0,0,0)
   end
+  def x
+    @x
+  end
+  def y
+    @y
+  end
+  def z
+    @z
+  end
   def is_on
     has_color
   end
@@ -81,5 +90,49 @@ class Led < RGBColor
 end
 
 class LedCube
+  def initialize
+    @x=0
+    @y=0
+    @z=0
+    @idx = 0
+    @leds = Array.new(64)
+    while @x < 4 do
+      @z = 0;
+      while @z < 4 do
+        @y = 0
+        while @y < 4 do
+          @led = Led.new(@x,@y,@z)
+          @leds[@idx] = @led;
+          @idx = @idx +1
+          @y = @y +1
+        end
+        @z = @z +1
+      end
+      @x = @x +1
+    end
+  end
 
+  def cube_command
+    @idx = 0
+    @command = '';
+    while @idx <64 do
+      @led = @leds[@idx]
+      @command = @command+@led.cube_command
+      @idx = @idx+1
+    end
+    @command
+  end
+
+  def get_led(x,y,z)
+    @idx = 0
+    while @idx <64 do
+      @led = @leds[@idx]
+      if @led.x == x and @led.y == y and @led.z == z
+        @led
+        break
+      end
+      @idx = @idx+1
+    end
+    @led
+  end
 end
