@@ -15,6 +15,7 @@ end
 led_cube = LedCube.new
 led_cube.all_on
 # led_cube.index = 32
+
 led = led_cube.get_current_led;
 led.turn_off
 led.red = ON
@@ -27,6 +28,8 @@ while led_cube.index < 63 do
   led.red = ON
   sp.write( led_cube.cube_command)
 end
+
+
 idx = 0
 while idx < 50 do
   led_cube.reverse_all
