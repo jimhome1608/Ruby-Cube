@@ -120,8 +120,6 @@ class LedCube
     @index
   end
 
-
-
   def cube_command
     @idx = 0
     @command = ''
