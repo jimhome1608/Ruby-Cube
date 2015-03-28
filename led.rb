@@ -96,6 +96,7 @@ class LedCube
     @z=0
     @idx = 0
     @leds = Array.new(64)
+    @index = 0
     while @x < 4 do
       @z = 0
       while @z < 4 do
@@ -111,6 +112,15 @@ class LedCube
       @x = @x +1
     end
   end
+
+  def index=(value)
+    @index = value
+  end
+  def index
+    @index
+  end
+
+
 
   def cube_command
     @idx = 0
@@ -134,5 +144,47 @@ class LedCube
       @idx = @idx+1
     end
     @led
+  end
+
+  def all_off
+    @idx = 0
+    while @idx <64 do
+      @led = @leds[@idx]
+      @led.turn_off
+      @idx = @idx+1
+    end
+  end
+
+  def all_on
+    @idx = 0
+    while @idx <64 do
+      @led = @leds[@idx]
+      @led.turn_off
+      @led.red = 255
+      @idx = @idx+1
+    end
+  end
+
+  def reverse_all
+    @idx = 0
+    while @idx <64 do
+      @led = @leds[@idx]
+      @led.red = @led.red ^ 255
+      @led.green = @led.green ^ 255
+      @led.blue = @led.blue ^ 255
+      @idx = @idx+1
+    end
+
+  end
+
+  def get_next_led
+    if @index < 63
+      @index = @index + 1;
+    end
+    @led = @leds[@index]
+  end
+
+  def get_current_led
+    @leds[@index]
   end
 end
