@@ -15,8 +15,11 @@ class RedLed
   def on
     @on
   end
-  def on=(value)
-    @on = value
+  def turn_off
+    @on = false
+  end
+  def turn_on
+    @on = true
   end
 
   def dmd_command
