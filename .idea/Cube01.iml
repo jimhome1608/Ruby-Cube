@@ -88,6 +88,5 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="bigdecimal (v1.2.6, ruby-2.2.1-p85) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="serialport (v1.3.1, ruby-2.2.1-p85) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="webrick (v1.3.1, ruby-2.2.1-p85) [gem]" level="application" />
   </component>
 </module>
